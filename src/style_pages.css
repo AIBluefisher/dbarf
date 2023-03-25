@@ -1,0 +1,180 @@
+/*@import url("https://rsms.me/inter/inter.css");*/
+
+html, body { 
+	height: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
+	letter-spacing: -0.15pt;
+/*	font-size: 95%;*/
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+* { 
+	margin: 0;
+	padding: 0;
+}
+
+/* tell the browser to render HTML 5 elements as block */
+article, aside, figure, header, hgroup, nav, section { 
+	display:block;
+}
+
+body { 
+	font: 400 1.0em IBM Plex Sans, sans-serif;
+	color: #000;
+}
+
+#main {
+	width: 94%;
+    max-width: 1000px;
+	margin: 0px auto 0 auto;
+	padding-bottom: 30px;
+}
+
+#banner {
+    padding-bottom: 10px;
+/*    background-image: linear-gradient(#000000, #4d2828);*/
+/*    box-shadow: 0 0 15px 30px #4d2828;*/
+}
+#banner-content {
+	width: 94%;
+	max-width: 950px;
+	margin: 0 auto 0 auto;
+/*	color: #DDD;*/
+}
+
+h1 { 
+	text-align: center;
+	font: 600 170% IBM Plex Sans;
+	padding: 30px 0 30px 0;
+}
+
+h2 {
+	font: 600 135% IBM Plex Sans;
+	text-shadow: 0px 0px 0.5px #888; 
+	margin: 40px 0 15px 0;
+}
+
+h4 {
+	font: 400 105% IBM Plex Sans;
+	margin: 0 0 5px 0;
+}
+
+.author {
+	font: 120% IBM Plex Sans;
+	margin: 0 10px 0 10px;
+}
+#author-list {
+	text-align: center;
+	max-width: 850px;
+	margin: 0 auto 0 auto;
+}
+.affil {
+	font: 400 110% IBM Plex Sans;
+/*	color: #e9bcde;*/
+	color: #260;
+	text-shadow: 0px 0px 0.5px #8F0; 
+	text-align: center;
+	margin: 0 10px 0 10px;
+}
+#affil-list {
+	text-align: center;
+	max-width: 850px;
+	margin: 5px auto 10px auto;
+}
+
+.venue {
+	font: 400 120% IBM Plex Sans;
+/*	color: #ffd71e;*/
+	color: #A08;
+	text-shadow: 0px 0px 0.5px #F88; 
+	text-align: center;
+	padding: 10px 0 0px 0;
+}
+.venue b {
+	font-weight: 600;
+}
+.special {
+/*	color: #F88;*/
+	color: #F00;
+}
+
+.divider {
+	text-align: center;
+	padding: 20px 0 10px 0;
+}
+
+.text {
+	font-weight: 400;
+	margin: auto;
+	text-align: justify;
+	padding: 0 42px 0 52px;
+	line-height: 1.3em;
+}
+.text p {
+	padding: 0 0 10px 0;
+}
+
+.large_video {
+    margin: 10px 0 0 0;
+    border: 1px solid #BBB;
+    box-shadow: 0 0 20px #CCC;
+}
+
+.others {
+	font: 400 100% IBM Plex Sans;
+	margin: 0 0 10px 0;
+	padding-left: 52px;
+	line-height: 1.3em;
+}
+
+a, a:hover { 
+	outline: none;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+a { color: #28D; text-shadow: 0px 0px 0.5px #2D6; }
+a:hover { color: #06A; text-shadow: 0px 0px 1.5px #2BF; }
+.inactive { color:#888; text-shadow: 0px 0px 0px #FFF; }
+/*#banner a { color: #1ac7d1; text-shadow: 0px 0px 0px #2D6 }*/
+/*#banner a:hover { color: #80e4ea; text-shadow: 0px 0px 1.5px #0ef1ff }*/
+
+.link {
+	font-weight: 500;
+}
+
+.paper {
+	height: 300px;
+}
+
+.paper_pic {
+	/*text-align: center;*/
+	padding: 0 0 0 52px;
+	float: left;
+	width: 290px;
+}
+
+.paper_content { 
+	font: 400 100% IBM Plex Sans;
+	float: left;
+	width: 650px;
+	padding: 0 0 0 0;
+}
+
+.bibtex {
+	width: 95%;
+	letter-spacing: 0pt;
+	background-color: #FFF0F0;
+	font: 95% "Inconsolata";
+	line-height: 1.05em;
+	border: 2px solid #888;
+	padding: 15px 15px 15px 15px;
+}
+
+.enlarge {
+	padding-bottom: 10px;
+	margin: auto;
+}

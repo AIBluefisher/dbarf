@@ -1,1 +1,205 @@
-# Github pages
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://chenhsuanlin.bitbucket.io/bundle-adjusting-NeRF/ -->
+<html class=" js canvas canvastext geolocation crosswindowmessaging websqldatabase indexeddb hashchange historymanagement draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  video audio localstorage sessionstorage webworkers no-applicationcache svg smil svgclippaths   fontface"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>BARF: Bundle-Adjusting Neural Radiance Fields</title>
+    <meta https-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="./src/style_pages.css">
+    <!-- modernizr enables HTML5 elements and feature detects -->
+    <script type="text/javascript" async="" src="./src/js/analytics.js"></script><script type="text/javascript" async="" src="./src/js_async"></script><script type="text/javascript" src="./src/js/modernizr-1.5.min.js"></script><style type="text/css" abt="234"></style>
+    <script src="./src/js/jquery.min.js"></script>
+    <script src="./src/js/jquery-1.10.2.js"></script>
+    <link href="./src/css" rel="stylesheet">
+    <link href="./src/css(1)" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./src/js/js_async(1)"></script>
+    <script>
+        window.dataLayer = window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        gtag("js",new Date());
+        gtag("config","UA-88237102-2");
+    </script>
+    <meta name="google-site-verification" content="-qf5PjwYVsvTpZ7HphVPX7GvqNF82-Zzjq8ALA7O-lU">
+    <!--<base target="_blank">--><base href="." target="_blank">
+<style type="text/css">
+    .caption {
+        margin: -5pt auto 10pt auto; 
+        font-size: 90%;
+        font-weight: 400;
+        text-align: center;
+    }
+    .caption_llffpose {
+/*        margin: -5pt auto 10pt auto; */
+        font-size: 80%;
+        font-weight: 400;
+        text-align: center;
+        background-color: #FFF;
+        width: 25%;
+        height: 25px;
+        position: absolute;
+        top: 0px;
+        z-index: 1;
+    }
+</style><script>//remove baidu search ad
+var _countAA = 0
+function doBBBd(){}
+doBBBd()
+document.addEventListener('keyup', function(){_countAA-=10;doBBBd()}, false)
+document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
+
+</script></head>
+
+
+
+<body lang="en" style="" data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
+
+    <section id="banner">
+        <div id="banner-content">
+            <h1>DBARF: Deep Bundle-Adjusting Neural Radiance Fields</h1>
+            <div id="author-list">
+                <span class="author"><a href="https://aibluefisher.github.io/">Chen Yu</a></span>
+                <span class="author" style="padding-right: 0"><a href="https://www.comp.nus.edu.sg/~leegh/">Gim Hee Lee</a></span>
+            </div>
+            <div id="affil-list">
+                <span class="affil">National University of Singapore</span>
+            </div>
+            <div class="venue">
+                IEEE Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2023<br>
+            </div>
+        </div>
+    </section>
+
+    <div id="main">
+        <div class="divider"><img src="./src/divider.png" width="600"></div>
+
+        <p class="caption" style="margin: 20px auto 0 auto;">
+            (Webpage is still under construction)
+        </p>
+
+
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">LLFF dataset</h2>
+        <div class="text">
+            <!-- <p>
+                We demonstrate how BARF can learn 3D scene representations from RGB video sequences from <b style="color: #F00">unknown</b> camera poses.
+                We compare the view synthesis results and the camera poses over the course of optimization.
+                Naively applying positional encoding in NeRF is detrimental to the registration process, which can get stuck in suboptimal solutions easily.
+                BARF can optimize for poses that highly agree with the structure-from-motion solutions.<br>
+            </p>
+            <p>
+                2nd row: optimized camera poses (<img src="./src/pose_optim.png" height="15">)<br>
+                3rd row: optimized camera poses (<img src="./src/pose_optim.png" height="15">) aligned to poses from COLMAP (<img src="./src/pose_colmap.png" height="15">) via Procrustes analysis
+            </p>
+            <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
+                <tbody><tr>
+                    <td style="width: 25%">image</td>
+                    <td style="width: 25%">depth</td>
+                    <td style="width: 25%">image</td>
+                    <td style="width: 25%">depth</td>
+                </tr>
+            </tbody></table>
+            <div style="position: relative; height: 672px;">
+                <video width="100%" loop="" muted="" controls="" style="position: absolute; top: 0px;"><source src="videos2/llff_optim.mp4" type="video/mp4">X</video>
+                <div class="caption_llffpose" style="top: 25.5%; left: 0%;">forward-facing view</div>
+                <div class="caption_llffpose" style="top: 25.5%; left: 25%;">top-down view</div>
+                <div class="caption_llffpose" style="top: 25.5%; left: 50%;">forward-facing view</div>
+                <div class="caption_llffpose" style="top: 25.5%; left: 75%;">top-down view</div>
+                <div class="caption_llffpose" style="top: 62.5%; left: 0%;">forward-facing view</div>
+                <div class="caption_llffpose" style="top: 62.5%; left: 25%;">top-down view</div>
+                <div class="caption_llffpose" style="top: 62.5%; left: 50%;">forward-facing view</div>
+                <div class="caption_llffpose" style="top: 62.5%; left: 75%;">top-down view</div>
+            </div> -->
+            <!-- <table class="caption" style="width: 100%;">
+                <tbody><tr>
+                    <td style="width: 50%">NeRF w/ full positional encoding</td>
+                    <td style="width: 50%"><b>BARF</b> (ours)</td>
+                </tr>
+            </tbody></table>-->
+            <p>
+                We compare our novel view synthesis results with IBRNet, where our network is trained without ground-truth camera poses.
+            </p> 
+            <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
+                <tbody><tr>
+                    <td style="width: 25%">image</td>
+                    <td style="width: 25%">depth</td>
+                    <td style="width: 25%">image</td>
+                    <td style="width: 25%">depth</td>
+                </tr>
+            </tbody></table>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <table class="caption" style="width: 100%;">
+                <tbody><tr>
+                    <td style="width: 50%">IBRNet</td>
+                    <td style="width: 50%"><b>DBARF</b> (ours)</td>
+                </tr>
+            </tbody></table>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/orchids_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/orchids_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/orchids_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/orchids_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/room_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/room_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/room_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/room_depth_dbarf.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/trex_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/trex_depth_ibrnet.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/trex_dbarf.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/trex_depth_dbarf.mp4" type="video/mp4">X</video>
+            <table class="caption" style="width: 100%;">
+                <tbody><tr>
+                    <td style="width: 50%">IBRNet</td>
+                    <td style="width: 50%"><b>DBARF</b> (ours)</td>
+                </tr>
+            </tbody></table>
+        </div>
+
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Code</h2>
+        <div class="others">
+            The code is hosted on <a href="https://github.com/chenhsuanlin/bundle-adjusting-NeRF" target="_blank">GitHub</a> (PyTorch).<br>
+            Details to download the datasets are also described in the <a href="https://github.com/chenhsuanlin/bundle-adjusting-NeRF" target="_blank">GitHub</a> page.
+        </div>
+
+
+    </div>
+
+    <!-- Statcounter code for http://chenhsuanlin.bitbucket.io -->
+    <script type="text/javascript">
+        var sc_project = 11275211; 
+        var sc_invisible = 1; 
+        var sc_security = "6b1453fd"; 
+    </script>
+    <script type="text/javascript" src="./src/counter.js" async=""></script>
+    <noscript>
+        <div class="statcounter" style="display: none;">
+            <a title="Statcounter" href="https://statcounter.com/"><img class="statcounter" src="https://c.statcounter.com/11275211/0/6b1453fd/1/" alt="Statcounter"></a>
+        </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
