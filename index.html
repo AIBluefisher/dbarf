@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0056)https://chenhsuanlin.bitbucket.io/bundle-adjusting-NeRF/ -->
 <html class=" js canvas canvastext geolocation crosswindowmessaging websqldatabase indexeddb hashchange historymanagement draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  video audio localstorage sessionstorage webworkers no-applicationcache svg smil svgclippaths   fontface"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <title>DBARF: Deep Bundle-Adjusting Neural Radiance Fields</title>
+    <title>DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields</title>
     <meta https-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="./src/style_pages.css">
     <!-- modernizr enables HTML5 elements and feature detects -->
     <script type="text/javascript" async="" src="./src/js/analytics.js"></script><script type="text/javascript" async="" src="./src/js_async"></script><script type="text/javascript" src="./src/js/modernizr-1.5.min.js"></script><style type="text/css" abt="234"></style>
@@ -10,6 +11,8 @@
     <script src="./src/js/jquery-1.10.2.js"></script>
     <link href="./src/css" rel="stylesheet">
     <link href="./src/css(1)" rel="stylesheet">
+    <link rel="stylesheet" href="./src/dics.min.css">
+    <script src="./src/js/dics.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="" src="./src/js/js_async(1)"></script>
     <script>
@@ -39,14 +42,69 @@
         top: 0px;
         z-index: 1;
     }
-</style><script>//remove baidu search ad
+</style>
+
+<script>//remove baidu search ad
 var _countAA = 0
 function doBBBd(){}
 doBBBd()
 document.addEventListener('keyup', function(){_countAA-=10;doBBBd()}, false)
 document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
 
-</script></head>
+</script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', domReady);
+
+    function domReady() {
+        new Dics({
+            container: document.querySelectorAll('.b-dics')[0],
+            textPosition: 'top'
+        });
+
+        new Dics({
+            container: document.querySelectorAll('.b-dics')[1],
+            textPosition: 'top'
+        });
+
+        // new Dics({
+        //     container: document.querySelectorAll('.b-dics')[2]
+        // });
+
+        // new Dics({
+        //     container: document.querySelectorAll('.b-dics')[3],
+        //     linesOrientation: 'vertical',
+        //     textPosition: 'left',
+        //     arrayBackgroundColorText: ['#000000', '#FFFFFF'],
+        //     arrayColorText: ['#FFFFFF', '#000000'],
+        //     linesColor: 'rgb(0,0,0)'
+        // });
+
+        // new Dics({
+        //     container: document.querySelectorAll('.b-dics')[4],
+        //     linesOrientation: 'vertical',
+        //     textPosition: 'right'
+        // });
+
+        // new Dics({
+        //     container: document.querySelectorAll('.b-dics')[5],
+        //     textPosition: 'bottom'
+        // });
+
+        // new Dics({
+        //     container: document.querySelectorAll('.b-dics')[6],
+        //     filters: ['blur(3px)', 'grayscale(1)', 'sepia(1)', 'saturate(3)']
+        // });
+        // new Dics({
+        //     container: document.querySelectorAll('.b-dics')[7],
+        //     rotate: '45deg'
+        // });
+
+    }
+</script>
+
+</head>
 
 
 
@@ -54,7 +112,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
 
     <section id="banner">
         <div id="banner-content">
-            <h1>DBARF: Deep Bundle-Adjusting Neural Radiance Fields</h1>
+            <h1>DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields</h1>
             <div id="author-list">
                 <span class="author"><a href="https://aibluefisher.github.io/">Chen Yu</a></span>
                 <span class="author" style="padding-right: 0"><a href="https://www.comp.nus.edu.sg/~leegh/">Gim Hee Lee</a></span>
@@ -179,10 +237,32 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
         </div>
 
         <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">ScanNet dataset</h2>
-            <p>Coming Soon</p>
+            <p>Videos are Coming Soon</p>
+            
+            <div style="padding: 0px 80px 0px 80px;">
+            <!-- <div style="padding: 20px;"> -->
+                <!-- <div class="b-dics" style="width: 48%; float: left"> -->
+                <div class="b-dics" style="width: 100%">
+                    <img src="./src/imgs/scannet_0671-00_gt0.png" alt="ground-truth">
+                    <img src="./src/imgs/scannet_0671-00_ibrnet0.png" alt="IBRNet">
+                    <img src="./src/imgs/scannet_0671-00_dbarf0.png" alt="DBARF">
+                </div>
+            </div>
+            </br>
+
+            <div style="padding: 0px 80px 0px 80px;">
+                <!-- <div class="b-dics" style="width: 48%; float: right"> -->
+                <div class="b-dics" style="width: 100%">
+                    <img src="./src/imgs/scannet_0671-00_gt1.png" alt="ground-truth">
+                    <img src="./src/imgs/scannet_0671-00_ibrnet1.png" alt="IBRNet">
+                    <img src="./src/imgs/scannet_0671-00_dbarf1.png" alt="DBARF">
+                </div>
+            </div>
+
         <div class="text">
         </div>
 
+        </br>
         <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Code</h2>
         <div class="others">
             The code is hosted on <a href="https://github.com/AIBluefisher/dbarf" target="_blank">GitHub</a> (PyTorch).<br>
