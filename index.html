@@ -11,8 +11,13 @@
     <script src="./src/js/jquery-1.10.2.js"></script>
     <link href="./src/css" rel="stylesheet">
     <link href="./src/css(1)" rel="stylesheet">
+    <!--Slider-->
     <link rel="stylesheet" href="./src/dics.min.css">
     <script src="./src/js/dics.min.js"></script>
+    <!--Magnifier-->
+    <link rel="stylesheet" href="./src/magnifier.css">
+    <!-- <script src="./src/js/magnifier.js"></script> -->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="" src="./src/js/js_async(1)"></script>
     <script>
@@ -104,6 +109,103 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
     }
 </script>
 
+
+    <style>
+        * {box-sizing: border-box;}
+        
+        .img-magnifier-container {
+            position:relative;
+        }
+        
+        .img-magnifier-glass {
+            position: absolute;
+            border: 3px solid #24d824;
+            border-radius: 50%;
+            cursor: none;
+            /*Set the size of the magnifier glass:*/
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+    <script>
+    function magnify(imgID, zoom) {
+        var img, glass, w, h, bw;
+        img = document.getElementById(imgID);
+        /*create magnifier glass:*/
+        glass = document.createElement("DIV");
+        glass.setAttribute("class", "img-magnifier-glass");
+        /*insert magnifier glass:*/
+        img.parentElement.insertBefore(glass, img);
+        /*set background properties for the magnifier glass:*/
+        glass.style.backgroundImage = "url('" + img.src + "')";
+        glass.style.backgroundRepeat = "no-repeat";
+        glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+        bw = 3;
+        w = glass.offsetWidth / 2;
+        h = glass.offsetHeight / 2;
+        /*execute a function when someone moves the magnifier glass over the image:*/
+        glass.addEventListener("mousemove", moveMagnifier);
+        img.addEventListener("mousemove", moveMagnifier);
+        /*and also for touch screens:*/
+        glass.addEventListener("touchmove", moveMagnifier);
+        img.addEventListener("touchmove", moveMagnifier);
+
+        function moveMagnifier(e) {
+            var pos, x, y;
+            /*prevent any other actions that may occur when moving over the image*/
+            e.preventDefault();
+            /*get the cursor's x and y positions:*/
+            pos = getCursorPos(e);
+            x = pos.x;
+            y = pos.y;
+            /*prevent the magnifier glass from being positioned outside the image:*/
+            if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+            if (x < w / zoom) {x = w / zoom;}
+            if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+            if (y < h / zoom) {y = h / zoom;}
+
+            /*set the position of the magnifier glass:*/
+            if (glass.style.backgroundImage == "") {
+                glass.style.backgroundImage = "url('" + img.src + "')";
+            }
+            if (glass.style.border == "0px") {
+                glass.style.border = "3px solid #24d824";
+            }
+            glass.style.left = (x - w) + "px";
+            glass.style.top = (y - h) + "px";
+
+            /*display what the magnifier glass "sees":*/
+            glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+            
+            e = e || window.event;
+            /*get the x and y positions of the image:*/
+            a = img.getBoundingClientRect();
+            if (e.pageX < a.left || e.pageX > a.left + img.width ||
+                e.pageY < a.top || e.pageY > a.top + img.height) {
+                glass.style.backgroundImage = "";
+                // glass.style.backgroundSize = "0px";
+                glass.style.border = "0px";
+                // glass.remove();
+            }
+        }
+
+        function getCursorPos(e) {
+            var a, x = 0, y = 0;
+            e = e || window.event;
+            /*get the x and y positions of the image:*/
+            a = img.getBoundingClientRect();
+            /*calculate the cursor's x and y coordinates, relative to the image:*/
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /*consider any page scrolling:*/
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x : x, y : y};
+        }
+    }
+    </script>
+
 </head>
 
 
@@ -120,7 +222,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             <div id="affil-list">
                 <span class="affil">National University of Singapore</span>
             </div>
-            <div class="venue">
+            <div align="center">
                 IEEE Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2023<br>
             </div>
         </div>
@@ -133,44 +235,33 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             (Webpage is still under construction)
         </p>
 
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Qualitative Analysis on LLFF dataset</h2>
+        <div class="venue"><p> <b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a different image</p></div>
+        
+        <!-- Images -->
+        <div class="img-zoom-container" align="center">
+          <figure display="inline-block">
+            <div class="img-zoom-lens"></div><img id="reference_mesh" src="./src/imgs/gt/000.png" data-image="./src/imgs/gt/">
+            <figcaption>Ground Truth</figcaption>
+          </figure>
+          <figure display="inline-block">
+            <div id="zoomed-barf_rgb" class="img-zoom-result" data-image="./src/imgs/barf/" style="background-image: url(./src/imgs/barf/000.png); background-size: 0px 720px;"></div>
+            <figcaption><a href="https://github.com/chenhsuanlin/bundle-adjusting-NeRF">BARF</a></figcaption>
+          </figure>
+          <figure display="inline-block">
+            <div id="zoomed-ibrnet_rgb" class="img-zoom-result" data-image="./src/imgs/ibrnet/" style="background-image: url(./src/imgs/ibrnet/000.png); background-size: 0px 720px;"></div>
+            <figcaption><a href="https://github.com/googleinterns/IBRNet">IBRNet</a></figcaption>
+          </figure>
+          <figure display="inline-block">
+            <div id="zoomed-dbarf_rgb" class="img-zoom-result" data-image="./src/imgs/dbarf/" style="background-image: url(./src/imgs/dbarf/000.png); background-size: 0px 720px;"></div>
+            <figcaption>DBARF (Ours)</figcaption>
+          </figure>
+        </div>
+        <br>
 
-        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">LLFF dataset</h2>
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Rendering Results on LLFF dataset</h2>
         <div class="text">
-            <!-- <p>
-                We demonstrate how BARF can learn 3D scene representations from RGB video sequences from <b style="color: #F00">unknown</b> camera poses.
-                We compare the view synthesis results and the camera poses over the course of optimization.
-                Naively applying positional encoding in NeRF is detrimental to the registration process, which can get stuck in suboptimal solutions easily.
-                BARF can optimize for poses that highly agree with the structure-from-motion solutions.<br>
-            </p>
-            <p>
-                2nd row: optimized camera poses (<img src="./src/pose_optim.png" height="15">)<br>
-                3rd row: optimized camera poses (<img src="./src/pose_optim.png" height="15">) aligned to poses from COLMAP (<img src="./src/pose_colmap.png" height="15">) via Procrustes analysis
-            </p>
-            <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
-                <tbody><tr>
-                    <td style="width: 25%">image</td>
-                    <td style="width: 25%">depth</td>
-                    <td style="width: 25%">image</td>
-                    <td style="width: 25%">depth</td>
-                </tr>
-            </tbody></table>
-            <div style="position: relative; height: 672px;">
-                <video width="100%" loop="" muted="" controls="" style="position: absolute; top: 0px;"><source src="videos2/llff_optim.mp4" type="video/mp4">X</video>
-                <div class="caption_llffpose" style="top: 25.5%; left: 0%;">forward-facing view</div>
-                <div class="caption_llffpose" style="top: 25.5%; left: 25%;">top-down view</div>
-                <div class="caption_llffpose" style="top: 25.5%; left: 50%;">forward-facing view</div>
-                <div class="caption_llffpose" style="top: 25.5%; left: 75%;">top-down view</div>
-                <div class="caption_llffpose" style="top: 62.5%; left: 0%;">forward-facing view</div>
-                <div class="caption_llffpose" style="top: 62.5%; left: 25%;">top-down view</div>
-                <div class="caption_llffpose" style="top: 62.5%; left: 50%;">forward-facing view</div>
-                <div class="caption_llffpose" style="top: 62.5%; left: 75%;">top-down view</div>
-            </div> -->
-            <!-- <table class="caption" style="width: 100%;">
-                <tbody><tr>
-                    <td style="width: 50%">NeRF w/ full positional encoding</td>
-                    <td style="width: 50%"><b>BARF</b> (ours)</td>
-                </tr>
-            </tbody></table>-->
+
             <p>
                 We compare our novel view synthesis results with IBRNet, where our network is trained without ground-truth camera poses.
             </p> 
@@ -236,7 +327,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             </tbody></table>
         </div>
 
-        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">ScanNet dataset</h2>
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Qualitative Analysis on ScanNet dataset</h2>
             <p>Videos are Coming Soon</p>
             
             <div style="padding: 0px 80px 0px 80px;">
@@ -259,6 +350,15 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                 </div>
             </div>
 
+            <!-- <div style="padding: 0px 80px 0px 80px;">
+                <div class="img-magnifier-container" style="width: 100%">
+                    <img id="ref_image" src="./src/imgs/scannet_0671-00_gt0.png">
+                    <img id="barf_image" src="./src/imgs/scannet_0671-00_gt0.png">
+                    <img id="ibrnet_image" src="./src/imgs/scannet_0671-00_gt0.png">
+                    <img id="dbarf_image" src="./src/imgs/scannet_0671-00_gt0.png">
+                </div>
+            </div> -->
+
         <div class="text">
         </div>
 
@@ -268,9 +368,16 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             The code is hosted on <a href="https://github.com/AIBluefisher/dbarf" target="_blank">GitHub</a> (PyTorch).<br>
             Details to download the datasets are also described in the <a href="https://github.com/AIBluefisher/dbarf" target="_blank">GitHub</a> page.
         </div>
-
+    <!-- </div> -->
 
     </div>
+
+    <footer align="center">
+        Main part of the project is taken from <a href="https://chenhsuanlin.bitbucket.io/bundle-adjusting-NeRF/">BARF</a>;
+        Magnifier is inspired by <a href="https://www.idiap.ch/paper/eslam/">ESLAM</a>;
+        Slider is taken from <a href="https://github.com/abelcabezaroman/definitive-image-comparison-slider">Dics</a>
+    </footer>
+    <br>
 
     <!-- Statcounter code for http://chenhsuanlin.bitbucket.io -->
     <script type="text/javascript">
@@ -286,5 +393,14 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
     </noscript>
     <!-- End of Statcounter Code -->
 
+    <!-- <script>
+        /* Initiate Magnify Function
+        with the id of the image, and the strength of the magnifier glass:*/
+        magnify("refimage", 3);
+    </script> -->
+
+<script src="./src/js/magnifier.js"></script>
+<!-- <script> imageZoom("reference", ["zoomed-imap", "zoomed-nice", "zoomed-eslam" ], 7); </script> -->
+<script> imageZoom("reference_mesh", ["zoomed-barf_rgb", "zoomed-ibrnet_rgb", "zoomed-dbarf_rgb" ], 6); </script>
 
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
