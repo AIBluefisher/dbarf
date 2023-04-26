@@ -4,18 +4,20 @@
     <title>DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields</title>
     <meta https-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="./src/style_pages.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/style_pages.css">
     <!-- modernizr enables HTML5 elements and feature detects -->
     <script type="text/javascript" async="" src="./src/js/analytics.js"></script><script type="text/javascript" async="" src="./src/js_async"></script><script type="text/javascript" src="./src/js/modernizr-1.5.min.js"></script><style type="text/css" abt="234"></style>
     <script src="./src/js/jquery.min.js"></script>
     <script src="./src/js/jquery-1.10.2.js"></script>
-    <link href="./src/css" rel="stylesheet">
-    <link href="./src/css(1)" rel="stylesheet">
+    <script src="./src/js/social-share.min.js"></script>
+    <link href="./src/css/css" rel="stylesheet">
+    <link href="./src/css/css(1)" rel="stylesheet">
+    <link href="./src/css/share.min.css" rel="stylesheet">
     <!--Slider-->
-    <link rel="stylesheet" href="./src/dics.min.css">
+    <link rel="stylesheet" href="./src/css/dics.min.css">
     <script src="./src/js/dics.min.js"></script>
     <!--Magnifier-->
-    <link rel="stylesheet" href="./src/magnifier.css">
+    <link rel="stylesheet" href="./src/css/magnifier.css">
     <!-- <script src="./src/js/magnifier.js"></script> -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -228,12 +230,12 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
         </div>
     </section>
 
-    <div id="main">
+    <div id="main" class="social-share" data-disabled="google,qzone,qq,douban" data-wechat-qrcode-title="请打开微信扫一扫">
         <div class="divider"><img src="./src/divider.png" width="600"></div>
 
-        <p class="caption" style="margin: 20px auto 0 auto;">
+        <!-- <p class="caption" style="margin: 20px auto 0 auto;">
             (Webpage is still under construction)
-        </p>
+        </p> -->
 
         <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Qualitative Analysis on LLFF dataset</h2>
         <div class="venue"><p> <b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a different image</p></div>
@@ -299,7 +301,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                     <td style="width: 50%"><b>DBARF</b> (ours)</td>
                 </tr>
             </tbody></table>
-            </br>
+            <!-- </br>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_ibrnet.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_depth_ibrnet.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_dbarf.mp4" type="video/mp4">X</video>
@@ -324,11 +326,66 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                     <td style="width: 50%">IBRNet</td>
                     <td style="width: 50%"><b>DBARF</b> (ours)</td>
                 </tr>
+            </tbody></table> -->
+
+            <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
+                <tbody><tr>
+                    <td style="width: 33%">RGB</td>
+                    <td style="width: 33%">Depth</td>
+                    <td style="width: 33%">Pose</td>
+                </tr>
             </tbody></table>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_rgb.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_camera_poses.mp4" type="video/mp4">X</video>            
+            <br/>
+
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/flower_rgb.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/flower_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/flower_camera_poses.mp4" type="video/mp4">X</video>
+            <br/>
+            
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fortress_rgb.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fortress_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fortress_camera_poses.mp4" type="video/mp4">X</video>
+            <br/>
+
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_rgb.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_camera_poses.mp4" type="video/mp4">X</video>
+            <br/>
+            <!-- <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
+                <tbody><tr>
+                    <td style="width: 25%">fern</td>
+                    <td style="width: 25%">flower</td>
+                    <td style="width: 25%">fortress</td>
+                    <td style="width: 25%">horns</td>
+                </tr>
+            </tbody></table>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_rgb.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_rgb.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_rgb.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_rgb.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_colorized_depth.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_colorized_depth.mp4" type="video/mp4">X</video>
+            </br>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_camera_poses.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_camera_poses.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_camera_poses.mp4" type="video/mp4">X</video>
+            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_camera_poses.mp4" type="video/mp4">X</video>
+            </br> -->
+            <!-- <table class="caption" style="width: 100%;">
+                <tbody><tr>
+                    <td style="width: 50%">IBRNet</td>
+                    <td style="width: 50%"><b>DBARF</b> (ours)</td>
+                </tr>
+            </tbody></table> -->
         </div>
 
         <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Qualitative Analysis on ScanNet dataset</h2>
-            <p>Videos are Coming Soon</p>
             
             <div style="padding: 0px 80px 0px 80px;">
             <!-- <div style="padding: 20px;"> -->
@@ -369,6 +426,25 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             Details to download the datasets are also described in the <a href="https://github.com/AIBluefisher/dbarf" target="_blank">GitHub</a> page.
         </div>
     <!-- </div> -->
+
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Publications</h2>
+        <div class="paper">
+            <div class="paper_pic"><img src="./src/paper.png" height="280"></div>
+            <div class="paper_content">
+                <h4>CVPR 2023 paper: <span class="link">[ <a href="https://arxiv.org/pdf/2303.14478.pdf">link</a> ]</span></h4>
+                <!-- <h4>Supplementary material: <span class="link">[ <a href="https://chenhsuanlin.bitbucket.io/bundle-adjusting-NeRF/supplementary.pdf">link</a> ]</span></h4> -->
+                <h4>arXiv preprint: <a href="https://arxiv.org/abs/2104.06405" target="_blank">https://arxiv.org/abs/2104.06405</a></h4>
+                <h4 style="padding-top: 20px">BibTex:</h4>
+                <div class="bibtex">
+                    @inproceedings{chen2023dbarf,<br>
+                    &nbsp;&nbsp;title={DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields},<br>
+                    &nbsp;&nbsp;author={Yu Chen and Gim Hee Lee},<br>
+                    &nbsp;&nbsp;booktitle={IEEE Conference on Computer Vision and Pattern Recognition ({CVPR})},<br>
+                    &nbsp;&nbsp;year={2023}<br>
+                    }
+                </div>
+            </div>
+        </div>
 
     </div>
 
