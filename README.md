@@ -3,7 +3,7 @@ Official Implementation of our CVPR 2023 paper: "DBARF: Deep Bundle-Adjusting Ge
 
 [[Project Page](https://aibluefisher.github.io/dbarf/) | [arXiv](https://arxiv.org/abs/2303.14478)]
 
-Our code will be released soon (I'm currently busy on my module assignments and even get barf :vomiting_face: , I need de-barf :slightly_smiling_face:) !
+Our code will be released at around 1st June (I'm currently busy on my module assignments and even get barf :vomiting_face: , I need de-barf :slightly_smiling_face:) !
 
 ## 1. Installation
 
