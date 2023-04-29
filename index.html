@@ -233,9 +233,26 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
     <div id="main" class="social-share" data-disabled="google,qzone,qq,douban" data-wechat-qrcode-title="请打开微信扫一扫">
         <div class="divider"><img src="./src/divider.png" width="600"></div>
 
-        <!-- <p class="caption" style="margin: 20px auto 0 auto;">
-            (Webpage is still under construction)
-        </p> -->
+        <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Abstract</h2>
+        <div class="text">
+            <p>
+                Recent works such as BARF and GARF can bundle adjust camera poses with neural radiance fields (NeRF) which
+                is based on coordinate-MLPs. Despite the impressive results, these methods cannot be applied to Generalizable
+                NeRFs (GeNeRFs) which require image feature extractions
+                that are often based on more complicated 3D CNN or transformer architectures. In this work, we first analyze the difficulties 
+                of jointly optimizing camera poses with GeNeRFs,
+                and then further propose our DBARF to tackle these issues.
+                Our DBARF which bundle adjusts camera poses by taking a cost feature map as an implicit cost function can be
+                jointly trained with GeNeRFs in a self-supervised manner.
+                Unlike BARF and its follow-up works, which can only be
+                applied to per-scene optimized NeRFs and need accurate
+                initial camera poses with the exception of forward-facing
+                scenes, our method can generalize across scenes and does
+                not require any good initialization. Experiments show the
+                effectiveness and generalization ability of our DBARF when
+                evaluated on real-world datasets.
+            </p>
+        </div>
 
         <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Qualitative Analysis on LLFF dataset</h2>
         <div class="venue"><p> <b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a different image</p></div>
@@ -301,7 +318,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                     <td style="width: 50%"><b>DBARF</b> (ours)</td>
                 </tr>
             </tbody></table>
-            <!-- </br>
+            </br>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_ibrnet.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_depth_ibrnet.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_dbarf.mp4" type="video/mp4">X</video>
@@ -326,8 +343,8 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                     <td style="width: 50%">IBRNet</td>
                     <td style="width: 50%"><b>DBARF</b> (ours)</td>
                 </tr>
-            </tbody></table> -->
-
+            </tbody></table>
+<!-- 
             <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
                 <tbody><tr>
                     <td style="width: 33%">RGB</td>
@@ -353,36 +370,8 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_rgb.mp4" type="video/mp4">X</video>
             <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_colorized_depth.mp4" type="video/mp4">X</video>
             <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_camera_poses.mp4" type="video/mp4">X</video>
-            <br/>
-            <!-- <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
-                <tbody><tr>
-                    <td style="width: 25%">fern</td>
-                    <td style="width: 25%">flower</td>
-                    <td style="width: 25%">fortress</td>
-                    <td style="width: 25%">horns</td>
-                </tr>
-            </tbody></table>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_rgb.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_rgb.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_rgb.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_rgb.mp4" type="video/mp4">X</video>
-            </br>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_colorized_depth.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_colorized_depth.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_colorized_depth.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_colorized_depth.mp4" type="video/mp4">X</video>
-            </br>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fern_camera_poses.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/flower_camera_poses.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/fortress_camera_poses.mp4" type="video/mp4">X</video>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/horns_camera_poses.mp4" type="video/mp4">X</video>
-            </br> -->
-            <!-- <table class="caption" style="width: 100%;">
-                <tbody><tr>
-                    <td style="width: 50%">IBRNet</td>
-                    <td style="width: 50%"><b>DBARF</b> (ours)</td>
-                </tr>
-            </tbody></table> -->
+            <br/> -->
+
         </div>
 
         <h2><img src="./src/leaf.png" width="36" height="20" style="padding-right: 15px">Qualitative Analysis on ScanNet dataset</h2>
