@@ -319,7 +319,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                 </tr>
             </tbody></table>
             </br>
-            <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_ibrnet.mp4" type="video/mp4">X</video>
+            <!-- <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_ibrnet.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_depth_ibrnet.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_dbarf.mp4" type="video/mp4">X</video>
             <video width="24%" loop="" muted="" autoplay=""><source src="src/videos/leaves_depth_dbarf.mp4" type="video/mp4">X</video>
@@ -343,17 +343,35 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
                     <td style="width: 50%">IBRNet</td>
                     <td style="width: 50%"><b>DBARF</b> (ours)</td>
                 </tr>
-            </tbody></table>
-<!-- 
+            </tbody></table> -->
+            
+            <p>
+                Though DBARF only predicts relative camera poses, we estimate the absolute camera poses by chaining the relative poses along 
+                an maximum spanning tree, where the edge weight is the number of correspondences.
+            </p>
+            <p>
+                1st row: left: rendered images; right: rendered depth <br>
+                2nd row: optimized camera poses (<img src="src/pose_optim.png" height="15">) <br>
+                3rd row: optimized camera poses (<img src="src/pose_optim.png" height="15">) aligned to poses from 
+                COLMAP (<img src="src/pose_colmap.png" height="15">) via a similarity transformation.
+            </p>
+
+
             <table class="caption" style="width: 100%; margin: 0 auto -2pt auto; font-size: 80%;">
                 <tbody><tr>
-                    <td style="width: 33%">RGB</td>
-                    <td style="width: 33%">Depth</td>
-                    <td style="width: 33%">Pose</td>
+                    <td style="width: 50%">RGB</td>
+                    <td style="width: 50%">Depth</td>
                 </tr>
             </tbody></table>
-            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_rgb.mp4" type="video/mp4">X</video>
-            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_colorized_depth.mp4" type="video/mp4">X</video>
+            <div style="position: relative; height: 672px;">
+                <video width="100%" loop="" muted="" autoplay=""><source src="src/videos/demo_pose.mp4" type="video/mp4">X</video>
+                <div class="caption_llffpose" style="top: 53%; left: 0%;">forward-facing view</div>
+                <div class="caption_llffpose" style="top: 53%; left: 25%;">top-down view</div>
+                <div class="caption_llffpose" style="top: 53%; left: 50%;">forward-facing view</div>
+                <div class="caption_llffpose" style="top: 53%; left: 75%;">top-down view</div>
+            </div>
+
+            <!-- <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_colorized_depth.mp4" type="video/mp4">X</video>
             <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/fern_camera_poses.mp4" type="video/mp4">X</video>            
             <br/>
 
@@ -369,8 +387,8 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
 
             <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_rgb.mp4" type="video/mp4">X</video>
             <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_colorized_depth.mp4" type="video/mp4">X</video>
-            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_camera_poses.mp4" type="video/mp4">X</video>
-            <br/> -->
+            <video width="33%" loop="" muted="" autoplay=""><source src="src/videos/horns_camera_poses.mp4" type="video/mp4">X</video> -->
+            <!-- <br/> -->
 
         </div>
 
