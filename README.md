@@ -73,7 +73,7 @@ IBRNet
 
 ## 4. Training & Evaluation
 
-Once your data is prepared, you can train IBRNet and DBARF. At first, you need to edit the corresponding configuration file to train the desired dataset. Note that for IBRNet, we only train a coarse nerf instead of a coarse nerf + a fine nerf. To reproduce our results, it is recommended to use our [pretrained model]() (to be uploaded).
+Once your data is prepared, you can train IBRNet and DBARF. At first, you need to edit the corresponding configuration file to train the desired dataset. Note that for IBRNet, we only train a coarse nerf instead of a coarse nerf + a fine nerf. To reproduce our results, it is recommended to use our **[pretrained model](https://drive.google.com/drive/folders/1K7mqz11fwtlCNr5sR8-YKeVWC3Si6DBi?usp=sharing)** for further finetuning.
 
 
 ### Training
@@ -95,27 +95,29 @@ cd scripts/shell
 
 ```sh
 cd scripts/shell
-ITER_NUMBER=20000
+ITER_NUMBER=200000
+GPU_IDX=0
 # For coarse-only IBRNet
-./eval_coarse_llff_all.sh $ITER_NUMBER 0
-./eval_coarse_scannet.sh $ITER_NUMBER 0
+./eval_coarse_llff_all.sh $ITER_NUMBER $GPU_IDX
+./eval_coarse_scannet.sh $ITER_NUMBER $GPU_IDX
 
 # For DBARF
-./eval_dbarf_llff_all.sh $ITER_NUMBER 0
-./eval_dbarf_ibr_collected_all.sh 0
-./eval_dbarf_scannet.sh $ITER_NUMBER 0
+./eval_dbarf_llff_all.sh $ITER_NUMBER $GPU_IDX
+./eval_dbarf_ibr_collected_all.sh $GPU_IDX
+./eval_dbarf_scannet.sh $ITER_NUMBER $GPU_IDX
 ```
 
 ### Rendering videos
 
 ```sh
 cd scripts/shell
-ITER_NUMBER=20000
+ITER_NUMBER=200000
+GPU_IDX=0
 # For coarse ibrnet
-./render_coarse_llff_all.sh $ITER_NUMBER 0
+./render_coarse_llff_all.sh $ITER_NUMBER $GPU_IDX
 
 # For dbarf
-./render_dbarf_llff_all.sh $ITER_NUMBER 0
+./render_dbarf_llff_all.sh $ITER_NUMBER $GPU_IDX
 ```
 
 # Citation
