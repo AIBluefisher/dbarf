@@ -1,0 +1,47 @@
+### INPUT
+expname = finetune_dbarf_llff_fern
+rootdir = # REPLACE THIS with YOUR PATH.
+ckpt_path = /home/chenyu/Datasets/IBRNet/pretrained_model/dbarf_model_200000.pth # REPLACE THIS with YOUR PATH.
+no_reload = False
+render_stride = 1 #2
+distributed = False
+pretrained = False
+no_load_opt = True
+no_load_scheduler = True
+n_iters = 230000 # 200000+30000
+enable_tensorboard = True
+enable_visdom = True
+
+## dataset
+train_dataset = llff_test # scannet
+train_scenes = fern # scene0000_00
+eval_dataset = llff_test # scannet
+eval_scenes = fern # scene0664_00
+num_source_views = 10
+selection_rule = view_graph
+
+### TRAINING
+N_rand = 500
+lrate_feature = 0.0005
+lrate_mlp = 0.0002
+lrate_pose = 0.00001
+lrate_decay_factor = 0.5
+lrate_decay_steps = 20000
+lrate_decay_pose_steps = 20000
+coarse_only = True
+coarse_feat_dim = 64 # original=32
+
+### TESTING
+chunk_size = 1200
+
+### RENDERING
+N_importance = 0 # 64
+N_samples = 64
+inv_uniform = True
+white_bkgd = False
+
+### CONSOLE AND TENSORBOARD
+n_validation = 2000
+n_tensorboard = 100
+n_checkpoint = 500
+visdom_port = 9000

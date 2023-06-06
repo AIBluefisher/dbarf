@@ -1,0 +1,38 @@
+### INPUT
+expname = pretraining_coarse_ibr
+rootdir = # REPLACE THIS with YOUR PATH.
+render_stride = 2
+distributed = False
+enable_tensorboard = True
+enable_visdom = False
+
+## dataset
+train_dataset = llff+ibrnet_collected
+dataset_weights = [0.5, 0.5]
+eval_dataset = llff_test
+eval_scenes = [trex, fern, flower, leaves, room, fortress, horns, orchids]
+num_source_views = 10
+selection_rule = pose
+
+### TRAINING
+N_rand = 500
+lrate_feature = 0.001
+lrate_mlp = 0.0005
+lrate_decay_factor = 0.5
+lrate_decay_steps = 50000
+coarse_only = True
+coarse_feat_dim = 64 # original=32
+
+### TESTING
+chunk_size = 2000
+
+### RENDERING
+N_importance = 0
+N_samples = 64
+inv_uniform = True
+white_bkgd = False
+
+### CONSOLE AND TENSORBOARD
+n_validation = 2000
+n_tensorboard = 100
+n_checkpoint = 5000

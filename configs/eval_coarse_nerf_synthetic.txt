@@ -1,0 +1,20 @@
+### INPUT
+expname = eval_coarse_nerf_synthetic
+rootdir = # REPLACE THIS with YOUR PATH.
+ckpt_path = # REPLACE THIS with YOUR PATH.
+distributed = False
+
+## dataset
+eval_dataset = nerf_synthetic
+eval_scenes = lego
+
+### TESTING
+chunk_size = 4096
+coarse_only = True
+coarse_feat_dim = 32 # original=32
+
+### RENDERING
+N_importance = 0
+N_samples = 64
+inv_uniform = True
+white_bkgd = False

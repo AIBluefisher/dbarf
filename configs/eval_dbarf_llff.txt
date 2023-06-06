@@ -1,0 +1,22 @@
+### INPUT
+expname = eval_dbarf_llff_finetune
+rootdir = # REPLACE THIS with YOUR PATH.
+ckpt_path = # REPLACE THIS with YOUR PATH.
+distributed = False
+
+## dataset
+eval_dataset = llff_test
+eval_scenes = flower
+num_source_views = 10
+selection_rule = view_graph
+
+### TESTING
+chunk_size = 4096
+coarse_only = True
+coarse_feat_dim = 64 # original=32
+
+### RENDERING
+N_importance = 0
+N_samples = 64
+inv_uniform = True
+white_bkgd = False
