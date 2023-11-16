@@ -8,6 +8,10 @@ conda activate dbarf
 # CUDA 11.3
 conda install pytorch==1.11.0 torchvision==0.12.0 cudatoolkit=11.3 -c pytorch
 
+git clone https://github.com/cvg/sfm-disambiguation-colmap.git
+cd sfm-disambiguation-colmap
+python -m pip install -e .
+
 # HLoc is used for extracting keypoints and matching features.
 git clone --recursive https://github.com/cvg/Hierarchical-Localization/
 cd Hierarchical-Localization/

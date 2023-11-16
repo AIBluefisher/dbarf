@@ -37,7 +37,7 @@ def parse_args():
                         help='Path to the output directory, default: %(default)s')
     parser.add_argument('--num_matches', type=int, default=30,
                         help='Number of image pairs for loc, default: %(default)s')
-    parser.add_argument('--disambiguate', type=bool, default=False,
+    parser.add_argument('--disambiguate', action="store_true",
                         help='Enable/Disable disambiguating wrong matches.')
     parser.add_argument('--track_degree', type=int, default=3)
     parser.add_argument('--coverage_thres', type=float, default=0.9)
@@ -57,9 +57,9 @@ def parse_args():
                         type=str,
                         choices=['default', 'strict'],
                         default='default')
-    parser.add_argument('--recon', type=bool, default=False,
+    parser.add_argument('--recon', action="store_true",
                         help='Indicates whether to reconstruct the scene.')
-    parser.add_argument('--visualize', type=bool, default=False,
+    parser.add_argument('--visualize', action="store_true",
                         help='Whether to visualize the reconstruction.')
     parser.add_argument('--gpu_idx', type=str, default='0')
     args = parser.parse_args()
